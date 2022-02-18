@@ -18,6 +18,7 @@ public class DeleteElementOfArray {
         int element = scanner.nextInt();
         for (int j = 0; j < array.length-1; j++) {
             if (array[j] == element) {
+                System.out.println("we can delete at index " +j);
                 for (int k = j; k < array.length-1; k++) {
                     array[k] = array[k + 1];
                 }

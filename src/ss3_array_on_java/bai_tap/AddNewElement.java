@@ -1,23 +1,39 @@
 package ss3_array_on_java.bai_tap;
+
 import java.util.Scanner;
+
 public class AddNewElement {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("enter array length: ");
         int size = scanner.nextInt();
-        int[] array = new int[size];
+        int[] array1 = new int[size];
+        int[] array2 = new int[size];
         int i = 0;
         while (i < size) {
             System.out.print("array[" + i + "] = ");
-            array[i] = scanner.nextInt();
+            array1[i] = scanner.nextInt();
             i++;
         }
         System.out.print("enter an element: ");
         int element = scanner.nextInt();
         System.out.print("enter an index: ");
         int index = scanner.nextInt();
-        if ((index < -1) || (index >= array.length-1)){
-            System.out.println("Wrong index");
+        if ((index <= -1) || (index >= array1.length)) {
+            System.out.println("we can't insert new element into this array");
+        } else {
+            for (int j = 0; j < array1.length; j++) {
+                if (j < index) {
+                    array2[j] = array1[j];
+                } else if (j == index) {
+                    array2[j] = element;
+                } else {
+                    array2[j] = array1[j - 1];
+                }
+            }
+            for (int j = 0; j < array2.length; j++) {
+                System.out.print(array2[j] + "\t");
+            }
         }
     }
 }
