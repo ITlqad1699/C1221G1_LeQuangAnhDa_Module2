@@ -1,4 +1,4 @@
-package ss3_array_on_java.bai_tap;
+package ss3_array_on_java.thuc_hanh;
 
 import java.util.Scanner;
 
