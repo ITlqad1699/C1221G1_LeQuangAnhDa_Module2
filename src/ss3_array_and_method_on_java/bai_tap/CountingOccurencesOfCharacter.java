@@ -9,7 +9,7 @@ public class CountingOccurencesOfCharacter {
         System.out.print("Enter a string: ");
         String str = scanner.nextLine();
         System.out.print("Enter a character: ");
-        //syntax of declaration character:
+        //syntax of declaration a character:
         char charactor = scanner.next().charAt(0);
         System.out.print("<----------------------------------------Count Occurrences Of Character-------------------------------------------------->\n");
         int count = 0;
@@ -18,6 +18,6 @@ public class CountingOccurencesOfCharacter {
                 count += 1;
             }
         }
-        System.out.print("the character " + charactor + " is apear " + count + " times");
+        System.out.print("the character " + charactor + " is appear " + count + " times");
     }
 }
