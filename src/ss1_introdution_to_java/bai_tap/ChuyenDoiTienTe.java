@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class ChuyenDoiTienTe {
     public static void main(String[] args) {
-        double vnd = 23000;
-        System.out.print("ti gia hien tai  " + vnd + "\n");
+        double vietNamDong = 23000;
+        System.out.print("ti gia hien tai  " + vietNamDong + "\n");
         double usd;
         Scanner scanner = new Scanner(System.in);
         System.out.print("nhap so tien can doi:  ");

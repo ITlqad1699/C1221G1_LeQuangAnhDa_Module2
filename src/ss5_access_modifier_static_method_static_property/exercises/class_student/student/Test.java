@@ -1,11 +1,11 @@
-package ss5_access_modifier_static_method_static_property.exercises.student;
+package ss5_access_modifier_static_method_static_property.exercises.class_student.student;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.print("<-------------------------------------------<<Initialize A Default Object Of Student Class>>----------------------------------------------->\n");
+        System.out.print("<----------------------------------------------<<Initialize A Default Object Of Student Class>>------------------------------------------------->\n");
         Student student1 = new Student();
         System.out.println(student1);
-        System.out.print("<-------------------------------------------<<Initialize An Object Of Student Class With Setter>>----------------------------------------------->\n");
+        System.out.print("<--------------------------------------------<<Initialize An Object Of Student Class With Setter>>---------------------------------------------->\n");
         Student student2 = new Student();
         student2.setName("max");
         student2.setClasses("C1221G1");

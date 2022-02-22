@@ -1,4 +1,4 @@
-package ss3_array_on_java.bai_tap;
+package ss3_array_and_method_on_java.bai_tap;
 
 import java.util.Scanner;
 
@@ -18,7 +18,7 @@ public class MergingArray {
             array1[i] = scanner.nextInt();
             i++;
         }
-        System.out.print("<-------------------------------------------<<input of array1>>------------------------------------------------>") ;
+        System.out.print("<-------------------------------------------<<input of array2>>------------------------------------------------>") ;
         System.out.print("\n");
         System.out.print("input array2:");
         System.out.print("\n");

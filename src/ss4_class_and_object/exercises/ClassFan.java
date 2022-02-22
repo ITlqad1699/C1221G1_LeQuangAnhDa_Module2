@@ -73,7 +73,7 @@ public class ClassFan {
         System.out.print("Enter color for fan1: ");
         String color1 = scanner.nextLine();
         System.out.print("Enter speed for fan1: ");
-        //Constraint of speed:
+        //Constraints of speed:
         int speed1;
         do {
             speed1 = scanner.nextInt();
@@ -81,8 +81,8 @@ public class ClassFan {
         while (speed1 > 3 || speed1 < 1);
         System.out.print("Enter radius for fan1: ");
         double radius1 = scanner.nextDouble();
-        boolean mode = true;
-        ClassFan fan1 = new ClassFan(speed1, mode, radius1, color1);
+        boolean mode1 = true;
+        ClassFan fan1 = new ClassFan(speed1, mode1, radius1, color1);
         System.out.print("the information of fan1 is: " + fan1.toString() + "\n");
         System.out.print("<-------------------------------------------<<Pass Parameters To Constructor>>----------------------------------------------->\n");
         ClassFan fan2 = new ClassFan(3, false, 5, "blue");

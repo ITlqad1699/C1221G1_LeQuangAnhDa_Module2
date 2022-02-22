@@ -14,6 +14,7 @@ public class DisplayingPrimeNumber {
             for (int j = 2; j < i - 1; j++) {
                 if (i % j == 0) {
                     flag = false;
+                    break;
                 }
             }
             if (flag) {

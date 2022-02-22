@@ -8,5 +8,11 @@ public class KhaiBaoBien {
         boolean b = true; // Khai báo biến b là kiểu boolean có giá trị là true
         char c = 'a'; // Khai báo biến c có kiểu là char có giá trị là kí tự a
         String s = "Hà Nội"; //Khai báo biến s có kiểu là String có giá trị là chuỗi Hà Nội
+        System.out.println("i = " + i);
+        System.out.println("f = " + f);
+        System.out.println("d = " + d);
+        System.out.println("b = " + b);
+        System.out.println("c = " + c);
+        System.out.println("s = " + s);
     }
 }

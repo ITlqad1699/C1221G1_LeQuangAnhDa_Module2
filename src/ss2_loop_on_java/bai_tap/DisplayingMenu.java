@@ -18,7 +18,10 @@ public class DisplayingMenu {
                 case 1:
                     System.out.println("Draw the square");
                     for (int i = 0; i < 5; i++) {
-                        System.out.println("* * * * * *");
+                        for (int j = 0; j < 5; j++) {
+                            System.out.print("*");
+                        }
+                        System.out.print("\n");
                     }
                     break;
                 case 2:

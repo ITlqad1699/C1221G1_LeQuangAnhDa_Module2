@@ -1,10 +1,11 @@
-package ss3_array_on_java.bai_tap;
+package ss3_array_and_method_on_java.bai_tap;
 
 import java.util.Scanner;
 
 public class AddNewElement {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("<-------------------------------------------<<input of an array>>------------------------------------------------>" + "\n");
         System.out.print("enter array length: ");
         int size = scanner.nextInt();
         int[] array1 = new int[size];
@@ -15,6 +16,7 @@ public class AddNewElement {
             array1[i] = scanner.nextInt();
             i++;
         }
+        System.out.print("<-------------------------------------------<<enter an element and index that you want to add>>------------------------------------------------>" + "\n");
         System.out.print("enter an element: ");
         int element = scanner.nextInt();
         System.out.print("enter an index: ");
@@ -31,9 +33,10 @@ public class AddNewElement {
                     array2[j] = array1[j - 1];
                 }
             }
-            for (int j = 0; j < array2.length; j++) {
-                System.out.print(array2[j] + "\t");
-            }
+        }
+        System.out.print("<-------------------------------------------<<your array after add new element>>------------------------------------------------>" + "\n");
+        for (int j = 0; j < array2.length; j++) {
+            System.out.print(array2[j] + "\t");
         }
     }
 }
