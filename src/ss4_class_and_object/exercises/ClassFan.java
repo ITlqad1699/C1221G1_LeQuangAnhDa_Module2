@@ -3,20 +3,16 @@ package ss4_class_and_object.exercises;
 import java.util.Scanner;
 
 public class ClassFan {
-
-    final int SLOW = 1;
-    final int MEDIUM = 2;
-    final int FAST = 3;
-    private int speed;
-    private boolean on;
-    private double radius;
-    private String color;
+    //Const can access any where, we can use const for all clas so we use public static:
+    public static final int SLOW = 1;
+    public static final int MEDIUM = 2;
+    public static final int FAST = 3;
+    private int speed = SLOW;
+    private boolean on = false;
+    private double radius = 5;
+    private String color = "blue";
 
     public ClassFan() {
-        this.speed = SLOW;
-        this.on = false;
-        this.radius = 5;
-        this.color = "blue";
     }
 
     public ClassFan(int speed, boolean on, double radius, String color) {
@@ -58,28 +54,38 @@ public class ClassFan {
         return this.color;
     }
 
-    public String display() {
-        return "fan { speed:" + this.speed + ", " + " status: " + this.on + ", " + "radius: " + this.radius + ", " + "color: " + this.color + "}";
+    @Override
+    public String toString() {
+        if (this.isOn()) {
+            return "fan { speed:" + this.speed + ", " + " status: " + this.on + ", " + "radius: " + this.radius + ", " + "color: " + this.color + "}";
+        } else {
+            return "fan { speed:" + 0 + ", " + " status: " + this.on + ", " + "radius: " + this.radius + ", " + "color: " + this.color + "}";
+        }
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("<-------------------------------------------<<Constructor Has No Parameters(The Default Constructor)>>----------------------------------------------->\n");
         ClassFan fan = new ClassFan();
-        System.out.print("the information of fan is: " + fan.display() + "\n");
+        System.out.print("the information of fan is: " + fan.toString() + "\n");
         System.out.print("<-------------------------------------------<<Constructor Has Parameters>>----------------------------------------------->\n");
         System.out.println("Enter information for fan1: ");
         System.out.print("Enter color for fan1: ");
         String color1 = scanner.nextLine();
         System.out.print("Enter speed for fan1: ");
-        int speed1 = scanner.nextInt();
+        //Constraint of speed:
+        int speed1;
+        do {
+            speed1 = scanner.nextInt();
+        }
+        while (speed1 > 3 || speed1 < 1);
         System.out.print("Enter radius for fan1: ");
         double radius1 = scanner.nextDouble();
         boolean mode = true;
         ClassFan fan1 = new ClassFan(speed1, mode, radius1, color1);
-        System.out.print("the information of fan1 is: " + fan1.display() + "\n");
+        System.out.print("the information of fan1 is: " + fan1.toString() + "\n");
         System.out.print("<-------------------------------------------<<Pass Parameters To Constructor>>----------------------------------------------->\n");
         ClassFan fan2 = new ClassFan(3, false, 5, "blue");
-        System.out.print("the information of fan2 is: " + fan2.display() + "\n");
+        System.out.print("the information of fan2 is: " + fan2.toString() + "\n");
     }
 }

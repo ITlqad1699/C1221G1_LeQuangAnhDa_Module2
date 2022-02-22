@@ -13,7 +13,7 @@ public class QuadraticEquation {
         System.out.print("Enter Params3: ");
         double param3 = scanner.nextDouble();
         QuadraticEquation newEquation1 = new QuadraticEquation(param1, param2, param3);
-        System.out.print("The New Quadratic Equation With 3 Parameters You've Just Entered: " + newEquation1.display() + "\n");
+        System.out.print("The New Quadratic Equation With 3 Parameters You've Just Entered: " + newEquation1.toString() + "\n");
         System.out.print("<-------------------------------------------<<Solve The Quadratic Equation>>----------------------------------------------->\n");
         if (newEquation1.getDiscriminant() > 0) {
             System.out.print("Quadratic Equation Has 2 Solutions(Roots):\n" + "x1 = " + newEquation1.getRoot1() + "\nx2 = " + newEquation1.getRoot2());
@@ -29,8 +29,6 @@ public class QuadraticEquation {
     private double b;
     private double c;
     double delta;
-    double x1;
-    double x2;
 
     //Constructor:
     public QuadraticEquation(double a, double b, double c) {
@@ -57,14 +55,14 @@ public class QuadraticEquation {
     }
 
     public double getRoot1() {
-        return this.x1 = -(this.b + Math.pow(this.delta, 0.5)) / (2 * this.a);
+        return  -(this.b + Math.pow(this.delta, 0.5)) / (2 * this.a);
     }
 
     public double getRoot2() {
-        return this.x2 = -(this.b - Math.pow(this.delta, 0.5)) / (2 * this.a);
+        return  -(this.b - Math.pow(this.delta, 0.5)) / (2 * this.a);
     }
-
-    public String display() {
+    @Override
+    public String toString() {
         return "Quadratic Equation:" + this.a + "x^2 +" + this.b + "x +" + this.c + "";
     }
 }
