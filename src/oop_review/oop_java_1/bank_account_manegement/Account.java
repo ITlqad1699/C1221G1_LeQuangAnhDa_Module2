@@ -74,22 +74,17 @@ public class Account {
         return this.getMoneyOnAccount();
     }
 
-    public void transferMoney(Account[] accounts) {
+    public void transferMoney(Account[] accounts, long numberFinding) {
         double transferingMoney;
-        long numberFinding;
         do {
-            System.out.print("Enter receiver account number : ");
-            numberFinding = Integer.parseInt(scanner.nextLine());
             System.out.print("Enter money that you want to transfer: ");
             transferingMoney = Double.parseDouble(scanner.nextLine());
         }
         while ((transferingMoney < 0) || (this.getMoneyOnAccount() < transferingMoney));
         for (int i = 0; i < accounts.length; i++) {
-            if (accounts[i].getNumberAccount() == numberFinding) {
+            if ((accounts[i].getNumberAccount() == numberFinding) && (accounts[i] instanceof Account)) {
                 this.setMoneyOnAccount(this.getMoneyOnAccount() - transferingMoney);
                 accounts[i].setMoneyOnAccount(accounts[i].getMoneyOnAccount() + transferingMoney);
-            } else {
-                System.out.println("this account number cannot be found");
                 break;
             }
         }
@@ -99,6 +94,6 @@ public class Account {
     public String toString() {
         return "Account name: " + this.name +
                 "\naccount number: " + this.numberAccount +
-                "\nMoney on your account: " + this.moneyOnAccount + "$";
+                "\nMoney on your account: " + this.moneyOnAccount + "$\n";
     }
 }
