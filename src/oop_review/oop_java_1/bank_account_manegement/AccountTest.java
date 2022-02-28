@@ -3,7 +3,6 @@ package oop_review.oop_java_1.bank_account_manegement;
 import java.util.Scanner;
 
 public class AccountTest extends Account {
-    Scanner scanner = new Scanner(System.in);
     private static Account[] accounts = new Account[100];
 
     static {
