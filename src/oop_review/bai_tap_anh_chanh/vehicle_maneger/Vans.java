@@ -23,12 +23,16 @@ public class Vans extends Vehicle  implements VehicleMethods {
     @Override
     public String toString() {
         return "Vans{" +
+                "licensePlates='" + this.getLicensePlates() + '\'' +
+                ", ProducerName='" + this.getProducerName() + '\'' +
+                ", yearOfManuFacTure=" + this.getYearOfManuFacTure() +
+                ", owner='" + this.getOwner()+ '\'' +
                 "tonnage=" + tonnage +
                 '}';
     }
 
     @Override
-    public void add(Vans vans1) {
+    public void add() {
 
     }
 

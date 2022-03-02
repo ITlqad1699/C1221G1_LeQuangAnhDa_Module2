@@ -25,6 +25,10 @@ public class Motor extends Vehicle implements VehicleMethods{
     @Override
     public String toString() {
         return "Motor{" +
+                "licensePlates='" + this.getLicensePlates() + '\'' +
+                ", ProducerName='" + this.getProducerName() + '\'' +
+                ", yearOfManuFacTure=" + this.getYearOfManuFacTure() +
+                ", owner='" + this.getOwner()+ '\'' +
                 "wattage=" + wattage +
                 '}';
     }

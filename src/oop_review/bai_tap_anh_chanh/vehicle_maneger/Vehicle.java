@@ -55,4 +55,5 @@ public abstract class Vehicle implements VehicleMethods {
                 ", owner='" + owner + '\'' +
                 '}';
     }
+
 }
