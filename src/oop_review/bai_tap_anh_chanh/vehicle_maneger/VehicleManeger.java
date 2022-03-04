@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VehicleManeger implements VehicleMethods {
-    public static void main(String[] args) {
-        VehicleManeger vehicleManeger = new VehicleManeger();
-        vehicleManeger.add();
-    }
 
     Scanner scanner = new Scanner(System.in);
     private static ArrayList<Motor> motors = new ArrayList<>();
@@ -92,6 +88,8 @@ public class VehicleManeger implements VehicleMethods {
                 Vans newVans = new Vans(licensePlates3, producerName3, yearOfManuFacTure3, owner3, tonnage);
                 vans.add(newVans);
                 break;
+            case 4:
+                break;
         }
     }
 
@@ -159,7 +157,8 @@ public class VehicleManeger implements VehicleMethods {
         System.out.println("Main Menu:\n" +
                 "1. Show List Motors\n" +
                 "2. Show List Cars\n" +
-                "3. Show List Vans\n"
+                "3. Show List Vans\n" +
+                "4. Back\n"
         );
         System.out.print("Select Function: ");
         choice = Integer.parseInt(scanner.nextLine());
@@ -178,6 +177,8 @@ public class VehicleManeger implements VehicleMethods {
                 for (Vans vans : vans) {
                     System.out.println(vans);
                 }
+                break;
+            case 4:
                 break;
         }
     }

@@ -27,7 +27,7 @@ public class Vans extends Vehicle  implements VehicleMethods {
                 ", ProducerName='" + this.getProducerName() + '\'' +
                 ", yearOfManuFacTure=" + this.getYearOfManuFacTure() +
                 ", owner='" + this.getOwner()+ '\'' +
-                "tonnage=" + tonnage +
+                ", tonnage=" + tonnage +
                 '}';
     }
 

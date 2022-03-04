@@ -29,7 +29,7 @@ public class Motor extends Vehicle implements VehicleMethods{
                 ", ProducerName='" + this.getProducerName() + '\'' +
                 ", yearOfManuFacTure=" + this.getYearOfManuFacTure() +
                 ", owner='" + this.getOwner()+ '\'' +
-                "wattage=" + wattage +
+                ", wattage=" + wattage +
                 '}';
     }
 

@@ -38,7 +38,7 @@ public class Car extends Vehicle implements VehicleMethods {
                 ", ProducerName='" + this.getProducerName() + '\'' +
                 ", yearOfManuFacTure=" + this.getYearOfManuFacTure() +
                 ", owner='" + this.getOwner()+ '\'' +
-                "numberOfSeat=" + numberOfSeat +
+                ", numberOfSeat=" + numberOfSeat +
                 ", typeOfCar='" + typeOfCar + '\'' +
                 '}';
     }
