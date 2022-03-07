@@ -9,15 +9,17 @@ public class MenuOfProductManeger {
         int choice;
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Main Menu:\n" +
-                    "1. Add New\n" +
-                    "2. Edit\n" +
-                    "3. Display\n" +
-                    "4. Delete\n" +
-                    "5. Search\n" +
-                    "6. Sort\n" +
-                    "7. Exit\n"
+            System.out.println("******************Product Maneger******************");
+            System.out.print("* Main Menu:                                      *\n" +
+                    "* 1. Add New                                      *\n" +
+                    "* 2. Edit                                         *\n" +
+                    "* 3. Display                                      *\n" +
+                    "* 4. Delete                                       *\n" +
+                    "* 5. Search                                       *\n" +
+                    "* 6. Sort                                         *\n" +
+                    "* 7. Exit                                         *\n"
             );
+            System.out.println("***************************************************");
             System.out.print("Select Function: ");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {

@@ -9,12 +9,14 @@ public class ProductManeger extends Product {
     private static ArrayList<Product> products = new ArrayList<>();
     private static Product product1 = new Product(1, "Milk", 10, 4000);
     private static Product product2 = new Product(2, "Beer", 15, 5000);
+    private static Product product4 = new Product(4, "Beer", 30, 5000);
     private static Product product3 = new Product(3, "Pepsi", 20, 3000);
 
     static {
         products.add(product1);
         products.add(product2);
         products.add(product3);
+        products.add(product4);
     }
 
     public void showListProduct() {
@@ -75,7 +77,6 @@ public class ProductManeger extends Product {
             if (products.get(i).getName().equals(name)) {
                 System.out.println(products.get(i));
                 flag = true;
-                break;
             }
         }
         if (!flag) {
