@@ -1,5 +1,6 @@
 package ss14_sort_algorithm.exercises;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class InsetionSortByStep {
@@ -21,32 +22,17 @@ public class InsetionSortByStep {
     }
 
     public static void insertionSort(int[] array) {
-        boolean needNextPass = true;
         int pos, x;
-        for (int k = 1; k < array.length && needNextPass; k++) {
-            needNextPass = false;
-            for (int i = 1; i < array.length; i++) {
-                x = array[i];
-                pos = i;
-                if (pos > 0 && x < array[pos - 1]) {
-                    array[pos] = array[pos - 1];
-                    pos--;
-                    needNextPass = true; /* Next pass still needed */
-                }
-                array[pos] = x;
+        for (int i = 1; i < array.length; i++) {
+            x = array[i];
+            pos = i;
+            if (pos > 0 && x < array[pos - 1]) {
+                array[pos] = array[pos - 1];
+                pos--;
+                System.out.println("List after the  " + pos + "' sort: " + Arrays.toString(array));
             }
-            /* Array may be sorted and next pass not needed */
-            if (needNextPass == false) {
-                System.out.println("Array may be sorted and next pass not needed");
-                break;
-            }
-            /* Show the list after sort */
-            System.out.print("List after the  " + k + "' sort: ");
-            System.out.print("List after the sort: ");
-            for (int j = 0; j < array.length; j++) {
-                System.out.print(array[j] + "\t");
-            }
-            System.out.println();
+            array[pos] = x;
+            System.out.println("List after the  " + i + "' sort: " + Arrays.toString(array));
         }
     }
 }
