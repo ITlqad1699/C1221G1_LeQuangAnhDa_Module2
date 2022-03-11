@@ -1,0 +1,5 @@
+Country{id=1, code='VI', name='viet nam'}
+Country{id=2, code='USA', name='my'}
+Country{id=3, code='Chi', name='china'}
+Country{id=4, code='russ', name='nga'}
+Country{id=5, code='eng', name='anh'}
