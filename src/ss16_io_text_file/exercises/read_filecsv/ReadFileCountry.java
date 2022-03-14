@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFileCountry {
+//    private static final String COUNTRY_FILE = "D:\\codegym\\module2_codegym\\src\\ss16_io_text_file\\exercises\\read_filecsv\\countries.csv";
+//    public static void
     public static void main(String[] args) {
 
         BufferedReader br = null;
