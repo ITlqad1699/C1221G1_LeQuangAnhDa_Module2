@@ -12,8 +12,8 @@ public class Customer extends Person{
         this.address = address;
     }
 
-    public Customer(int id, String name, String gender, int idCard, long phoneNumber, String email, String customerType, String address) {
-        super(id, name, gender, idCard, phoneNumber, email);
+    public Customer(int id, String name, String birthDay, String gender, int idCard, long phoneNumber, String email, String customerType, String address) {
+        super(id, name, birthDay, gender, idCard, phoneNumber, email);
         this.customerType = customerType;
         this.address = address;
     }
@@ -39,6 +39,7 @@ public class Customer extends Person{
         return "Customer{" +
                 "id=" + getId() +
                 ", name='" + getName() + '\'' +
+                ", birthDay='" + getBirthDay() + '\'' +
                 ", gender='" + getGender() + '\'' +
                 ", idCard=" + getIdCard() +
                 ", phoneNumber=" + getPhoneNumber() +

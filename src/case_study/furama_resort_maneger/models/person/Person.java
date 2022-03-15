@@ -3,6 +3,7 @@ package case_study.furama_resort_maneger.models.person;
 public abstract class Person {
     private int id;
     private String name;
+    private String birthDay;
     private String gender;
     private int idCard;
     private long phoneNumber;
@@ -11,9 +12,10 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(int id, String name, String gender, int idCard, long phoneNumber, String email) {
+    public Person(int id, String name, String birthDay, String gender, int idCard, long phoneNumber, String email) {
         this.id = id;
         this.name = name;
+        this.birthDay = birthDay;
         this.gender = gender;
         this.idCard = idCard;
         this.phoneNumber = phoneNumber;
@@ -68,11 +70,20 @@ public abstract class Person {
         this.email = email;
     }
 
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", birthDay='" + birthDay + '\'' +
                 ", gender='" + gender + '\'' +
                 ", idCard=" + idCard +
                 ", phoneNumber=" + phoneNumber +
