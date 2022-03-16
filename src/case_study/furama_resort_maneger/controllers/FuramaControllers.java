@@ -1,5 +1,12 @@
 package case_study.furama_resort_maneger.controllers;
 
+import case_study.furama_resort_maneger.services.customer_service.CustomerService;
+import case_study.furama_resort_maneger.services.customer_service.CustomerServiceImpl;
+import case_study.furama_resort_maneger.services.employee_service.EmployeeService;
+import case_study.furama_resort_maneger.services.employee_service.EmployeeServiceImpl;
+import case_study.furama_resort_maneger.services.facility_service.FacilityService;
+import case_study.furama_resort_maneger.services.facility_service.FacilityServiceImpl;
+
 import java.util.Scanner;
 
 public class FuramaControllers {
@@ -7,6 +14,9 @@ public class FuramaControllers {
         FuramaControllers furamaControllers = new FuramaControllers();
         furamaControllers.displayMainMenu();
     }
+    static EmployeeService employeeServiceImpl = new EmployeeServiceImpl();
+    static CustomerService customerServiceImpl = new CustomerServiceImpl();
+    static FacilityService facilityServiceImpl = new FacilityServiceImpl();
 
     public static void displayMainMenu() {
         int choiceFunction;
@@ -34,13 +44,13 @@ public class FuramaControllers {
                     choiceEmployeeFunction = Integer.parseInt(scanner.nextLine());
                     switch (choiceEmployeeFunction) {
                         case 1:
-                            //display
+                            employeeServiceImpl.displayList();
                             break;
                         case 2:
-                            //addnew
+                            employeeServiceImpl.addNew();
                             break;
                         case 3:
-                            //edit
+                            employeeServiceImpl.editElement();
                             break;
                         case 4:
                             //return menu
@@ -55,13 +65,13 @@ public class FuramaControllers {
                     choiceCustomerFunction = Integer.parseInt(scanner.nextLine());
                     switch (choiceCustomerFunction) {
                         case 1:
-                            //display
+                            customerServiceImpl.displayList();
                             break;
                         case 2:
-                            //addnew
+                            customerServiceImpl.addNew();
                             break;
                         case 3:
-                            //edit
+                            customerServiceImpl.editElement();
                             break;
                         case 4:
                             //return menu
@@ -76,13 +86,13 @@ public class FuramaControllers {
                     choiceFacilityFunction = Integer.parseInt(scanner.nextLine());
                     switch (choiceFacilityFunction) {
                         case 1:
-                            //display
+                            facilityServiceImpl.displayList();
                             break;
                         case 2:
-                            //addnew
+                            facilityServiceImpl.addNew();
                             break;
                         case 3:
-                            //edit
+                            facilityServiceImpl.displayFacilityMaintenance();
                             break;
                         case 4:
                             //return menu
