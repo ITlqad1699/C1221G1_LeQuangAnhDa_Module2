@@ -26,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("enter employee's ID card ");
         int idCard = Integer.parseInt(scanner.nextLine());
         System.out.println("enter employee's phone number: ");
-        long phoneNumber = Integer.parseInt(scanner.nextLine());
+        String phoneNumber = scanner.nextLine();
         System.out.println("enter employee's email: ");
         String email = scanner.nextLine();
         System.out.println("enter employee's level: ");

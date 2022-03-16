@@ -7,11 +7,16 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
+    public static void main(String[] args) {
+        CustomerService customerService = new CustomerServiceImpl();
+        customerService.editElement();
+        customerService.displayList();
+    }
     Scanner scanner = new Scanner(System.in);
     private static LinkedList<Customer> customers = new LinkedList<>();
 
     static {
-        customers.add(new Customer());
+        customers.add(new Customer(1,"vu","15/3","nam",12,"093433445","tienvu@gmail.com","vip","nghĩa đàn"));
     }
 
     /* initialize a new employee: */
@@ -28,7 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("enter customer's ID card ");
         int idCard = Integer.parseInt(scanner.nextLine());
         System.out.println("enter customer's phone number: ");
-        long phoneNumber = Integer.parseInt(scanner.nextLine());
+        String phoneNumber = scanner.nextLine();
         System.out.println("enter customer's email: ");
         String email = scanner.nextLine();
         System.out.println("enter customer's type: ");
