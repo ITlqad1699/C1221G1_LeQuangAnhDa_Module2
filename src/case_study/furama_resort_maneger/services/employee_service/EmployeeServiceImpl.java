@@ -6,13 +6,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
+    public static void main(String[] args) {
+        EmployeeService employeeService = new EmployeeServiceImpl();
+        employeeService.addNew();
+        employeeService.displayList();
+    }
+
     Scanner scanner = new Scanner(System.in);
     private static ArrayList<Employee> employees = new ArrayList<>();
 
     static {
-        employees.add(new Employee());
+
     }
-    /* initialize a new employee: */
+
     private static Employee initializeNewEmployee() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("enter employee's ID: ");
@@ -29,10 +35,34 @@ public class EmployeeServiceImpl implements EmployeeService {
         String phoneNumber = scanner.nextLine();
         System.out.println("enter employee's email: ");
         String email = scanner.nextLine();
-        System.out.println("enter employee's level: ");
-        String level = scanner.nextLine();
-        System.out.println("enter employee's position: ");
-        String position = scanner.nextLine();
+        String level = null;
+        System.out.println("choose employee's level:\n"+
+                "1. intermediate\n"+
+                "2. colleges\n" +
+                "3. university\n" +
+                "4. graduate level");
+        String[] levelEducation = {"intermediate","colleges","university","graduate level"};
+        int choiceLevel = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i<levelEducation.length;i++){
+            if (choiceLevel-1 ==i){
+                level = levelEducation[i];
+            }
+        }
+        String position = "";
+        System.out.println("choose employee's position\n"+
+                "1. recetionist\n"+
+                "2. service\n"+
+                "3. expert\n"+
+                "4. monitoring\n"+
+                "5. maneger\n"+
+                "6. director");
+        String[] positionEployee = {"recetionist","service","expert","monitoring","maneger","director"};
+        int choicePosition = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i< positionEployee.length;i++){
+            if (choicePosition-1 == i){
+                position = positionEployee[i];
+            }
+        }
         System.out.println("enter employee's salary: ");
         double salary = Double.parseDouble(scanner.nextLine());
         return new Employee(id, name, birthDay, gender, idCard, phoneNumber, email, level, position, salary);

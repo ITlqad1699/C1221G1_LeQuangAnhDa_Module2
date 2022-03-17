@@ -1,23 +1,23 @@
 package case_study.furama_resort_maneger.services.customer_service;
 
 import case_study.furama_resort_maneger.models.person.Customer;
-import case_study.furama_resort_maneger.models.person.Employee;
 
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
-    public static void main(String[] args) {
-        CustomerService customerService = new CustomerServiceImpl();
-        customerService.editElement();
-        customerService.displayList();
-    }
+//    public static void main(String[] args) {
+//        CustomerService customerService = new CustomerServiceImpl();
+//        customerService.editElement();
+//        customerService.displayList();
+//    }
+
     Scanner scanner = new Scanner(System.in);
     private static LinkedList<Customer> customers = new LinkedList<>();
 
-    static {
-        customers.add(new Customer(1,"vu","15/3","nam",12,"093433445","tienvu@gmail.com","vip","nghĩa đàn"));
-    }
+//    static {
+//        customers.add(new Customer(1, "vu", "15/3", "nam", 12, "093433445", "tienvu@gmail.com", "vip", "nghĩa đàn"));
+//    }
 
     /* initialize a new employee: */
     private static Customer initializeNewCustomer() {
@@ -36,8 +36,20 @@ public class CustomerServiceImpl implements CustomerService {
         String phoneNumber = scanner.nextLine();
         System.out.println("enter customer's email: ");
         String email = scanner.nextLine();
-        System.out.println("enter customer's type: ");
-        String customerType = scanner.nextLine();
+        System.out.println("choose customer's type:\n" +
+                "1. Diamond\n" +
+                "2. Platinium\n" +
+                "3. Gold\n" +
+                "4. Silver\n" +
+                "5. Member");
+        String customerType = "";
+        String[] customerTypeArray = {"Diamond", "Platinium", "Gold", "Silver", "Member"};
+        int choiceType = Integer.parseInt(scanner.nextLine());
+        for (int i = 0; i < customerTypeArray.length; i++) {
+            if (choiceType - 1 == i) {
+                customerType = customerTypeArray[i];
+            }
+        }
         System.out.println("enter customer's address: ");
         String address = scanner.nextLine();
         return new Customer(id, name, birthDay, gender, idCard, phoneNumber, email, customerType, address);
@@ -51,7 +63,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void displayList() {
-        for(Customer customer: customers){
+        for (Customer customer : customers) {
             System.out.println(customer);
         }
     }
@@ -60,7 +72,7 @@ public class CustomerServiceImpl implements CustomerService {
     public void editElement() {
         System.out.println("you want update by:\n" +
                 "1. name\n" +
-                "2. id\n"+
+                "2. id\n" +
                 "select function: ");
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice) {
