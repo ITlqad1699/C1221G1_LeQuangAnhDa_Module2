@@ -4,24 +4,30 @@ import case_study.furama_resort_maneger.models.facility.Facility;
 import case_study.furama_resort_maneger.models.facility.House;
 import case_study.furama_resort_maneger.models.facility.Room;
 import case_study.furama_resort_maneger.models.facility.Villa;
-import case_study.furama_resort_maneger.services.validate.EnterParameter;
-import case_study.furama_resort_maneger.services.validate.ValidateRentalType;
-import case_study.furama_resort_maneger.services.validate.ValidateServiceCode;
-import case_study.furama_resort_maneger.services.validate.ValidateServiceName;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import case_study.furama_resort_maneger.util.validate.EnterParameter;
+import case_study.furama_resort_maneger.util.validate.ValidateRentalType;
+import case_study.furama_resort_maneger.util.validate.ValidateServiceCode;
+import case_study.furama_resort_maneger.util.validate.ValidateServiceName;
+import case_study.furama_resort_maneger.util.reader_and_writer.ReaderAndWriter;
+
+import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
     //test thử:
     public static void main(String[] args) {
         FacilityServiceImpl facilityService = new FacilityServiceImpl();
-        facilityService.addNew();
+//        facilityService.addNew();
         facilityService.displayList();
     }
 
     Scanner scanner = new Scanner(System.in);
-    Map<Facility, Integer> facilitySerice = new LinkedHashMap<>();
+    private static Map<Facility, Integer> facilitySerice = new LinkedHashMap<>();
+    private static List<Facility> villaList = ReaderAndWriter.readVillaListFromCSV();
+    private static List<Facility> houseList = ReaderAndWriter.readHouseListFromCSV();
+    private static List<Facility> roomList = ReaderAndWriter.readRoomListFromCSV();
+    private static final boolean COUNTINUE = true; //countinue write csv
+    private static final boolean NOT_COUNTINUE = false; //override file csv
+
     /*Villa*/
     private static Facility initializeVilla() {
         Scanner scanner = new Scanner(System.in);
@@ -46,6 +52,7 @@ public class FacilityServiceImpl implements FacilityService {
         int floorNumber = EnterParameter.enterFloor();
         return new Villa(nameService, usableArea, rentalCost, maximumPeople, rentalType, serviceCode, roomStandard, swimmingPoolArea, floorNumber);
     }
+
     /*House*/
     private static Facility initializeHouse() {
         Scanner scanner = new Scanner(System.in);
@@ -68,6 +75,7 @@ public class FacilityServiceImpl implements FacilityService {
         int floorNumber = EnterParameter.enterFloor();
         return new House(nameService, usableArea, rentalCost, maximumPeople, rentalType, serviceCode, roomStandard, floorNumber);
     }
+
     /*Room*/
     private static Facility initizalizeRoom() {
         Scanner scanner = new Scanner(System.in);
@@ -100,15 +108,21 @@ public class FacilityServiceImpl implements FacilityService {
         switch (choice) {
             case 1:
                 Facility newVilla = initializeVilla();
+                villaList.add(newVilla);
                 facilitySerice.put(newVilla, 0);
+                ReaderAndWriter.writeVillaToCSV(villaList, COUNTINUE);
                 break;
             case 2:
                 Facility newHouse = initializeHouse();
+                houseList.add(newHouse);
                 facilitySerice.put(newHouse, 0);
+                ReaderAndWriter.writeHouseToCSV(houseList, COUNTINUE);
                 break;
             case 3:
                 Facility newRoom = initizalizeRoom();
+                roomList.add(newRoom);
                 facilitySerice.put(newRoom, 0);
+                ReaderAndWriter.writeRoomToCSV(roomList, COUNTINUE);
                 break;
             case 4:
                 //Back to menu
@@ -118,6 +132,15 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void displayList() {
+        for (Facility villa : villaList) {
+            facilitySerice.put(villa, 0);
+        }
+        for (Facility house : houseList) {
+            facilitySerice.put(house, 0);
+        }
+        for (Facility room : roomList) {
+            facilitySerice.put(room, 0);
+        }
         for (Map.Entry<Facility, Integer> entry : facilitySerice.entrySet()) {
             System.out.println("service: " + entry.getKey() +
                     "\nbooking: " + entry.getValue());
@@ -126,6 +149,12 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void displayFacilityMaintenance() {
-
+        List<Facility> facilities = new ArrayList<>();
+        System.out.println("Facility needs maintenace: ");
+        for (Map.Entry<Facility, Integer> entry : facilitySerice.entrySet()) {
+            if (entry.getValue() > 5) {
+                facilities.add(entry.getKey());
+            }
+        }
     }
 }

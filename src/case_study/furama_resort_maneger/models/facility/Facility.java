@@ -1,6 +1,8 @@
 package case_study.furama_resort_maneger.models.facility;
 
-public abstract class Facility {
+import case_study.furama_resort_maneger.models.GetInFoToCSV;
+
+public abstract class Facility implements GetInFoToCSV {
     private String nameService;
     private double usableArea;
     private double rentalCosts;

@@ -1,6 +1,8 @@
 package case_study.furama_resort_maneger.models.person;
 
-public class Customer extends Person{
+import case_study.furama_resort_maneger.models.GetInFoToCSV;
+
+public class Customer extends Person implements GetInFoToCSV {
     private String customerType;
     private String address;
 
@@ -17,6 +19,7 @@ public class Customer extends Person{
         this.customerType = customerType;
         this.address = address;
     }
+
 
     public String getCustomerType() {
         return customerType;
@@ -47,5 +50,8 @@ public class Customer extends Person{
                 "customerType='" + customerType + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+    public String getInFoToCSV() {
+        return this.getId() + "," + this.getName() + "," + this.getBirthDay() + "," + this.getGender() + "," + this.getIdCard() + "," + this.getPhoneNumber() + "," + this.getEmail() + "," + this.customerType + "," + this.address ;
     }
 }

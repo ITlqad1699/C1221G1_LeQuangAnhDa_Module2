@@ -1,8 +1,11 @@
-package case_study.furama_resort_maneger.services.validate;
+package case_study.furama_resort_maneger.util.validate;
 
 import java.util.Scanner;
 
 public class EnterParameter {
+    public static void main(String[] args) {
+
+    }
     public static double enterUsableArea() {
         Scanner scanner = new Scanner(System.in);
         double usableArea;

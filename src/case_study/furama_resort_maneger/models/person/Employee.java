@@ -1,10 +1,13 @@
 package case_study.furama_resort_maneger.models.person;
 
-public class Employee extends Person{
+import case_study.furama_resort_maneger.models.GetInFoToCSV;
+
+public class Employee extends Person implements GetInFoToCSV {
     private String level;
     private String position;
     private double salary;
-    public  Employee() {
+
+    public Employee() {
     }
 
     public Employee(String level, String position, double salary) {
@@ -47,7 +50,7 @@ public class Employee extends Person{
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Employee{" +
                 "id=" + getId() +
                 ", name='" + getName() + '\'' +
                 ", birthDay='" + getBirthDay() + '\'' +
@@ -59,5 +62,9 @@ public class Employee extends Person{
                 ", position='" + position + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    public String getInFoToCSV() {
+        return this.getId() + "," + this.getName() + "," + this.getBirthDay() + "," + this.getGender() + "," + this.getIdCard() + "," + this.getPhoneNumber() + "," + this.getEmail() + "," + this.level + "," + this.position + "," + this.salary;
     }
 }

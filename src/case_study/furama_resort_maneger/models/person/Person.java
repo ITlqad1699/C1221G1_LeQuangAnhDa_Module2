@@ -1,6 +1,8 @@
 package case_study.furama_resort_maneger.models.person;
 
-public abstract class Person {
+import case_study.furama_resort_maneger.models.GetInFoToCSV;
+
+public abstract class Person implements GetInFoToCSV {
     private int id;
     private String name;
     private String birthDay;

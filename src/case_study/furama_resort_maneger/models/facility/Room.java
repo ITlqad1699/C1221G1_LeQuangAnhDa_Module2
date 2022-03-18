@@ -1,6 +1,8 @@
 package case_study.furama_resort_maneger.models.facility;
 
-public class Room extends Facility {
+import case_study.furama_resort_maneger.models.GetInFoToCSV;
+
+public class Room extends Facility implements GetInFoToCSV {
     private String freeServiceincluded;
 
     public Room() {
@@ -34,5 +36,10 @@ public class Room extends Facility {
                 ", serviceCode='" + getServiceCode() + '\'' +
                 "freeServiceincluded='" + freeServiceincluded + '\'' +
                 '}';
+    }
+
+    @Override
+    public String getInFoToCSV() {
+        return this.getNameService() + "," + this.getUsableArea() + "," + this.getRentalCosts() + "," + this.getMaximumPeople() + "," + this.getRentalType() + "," + this.getServiceCode() + "," +  freeServiceincluded;
     }
 }

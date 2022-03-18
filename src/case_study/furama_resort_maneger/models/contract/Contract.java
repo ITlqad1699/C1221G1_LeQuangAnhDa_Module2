@@ -4,13 +4,13 @@ public class Contract {
     private int contractID;
     private int bookingID;
     private double deposit;
-    private int totalPayment;
+    private double totalPayment;
     private int customerID;
 
     public Contract() {
     }
 
-    public Contract(int contractID, int bookingID, double deposit, int totalPayment, int customerID) {
+    public Contract(int contractID, int bookingID, double deposit, double totalPayment, int customerID) {
         this.contractID = contractID;
         this.bookingID = bookingID;
         this.deposit = deposit;
@@ -42,11 +42,11 @@ public class Contract {
         this.deposit = deposit;
     }
 
-    public int getTotalPayment() {
+    public double getTotalPayment() {
         return totalPayment;
     }
 
-    public void setTotalPayment(int totalPayment) {
+    public void setTotalPayment(double totalPayment) {
         this.totalPayment = totalPayment;
     }
 

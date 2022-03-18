@@ -1,4 +1,4 @@
-package case_study.furama_resort_maneger.services.validate;
+package case_study.furama_resort_maneger.util.validate;
 
 import java.util.Scanner;
 

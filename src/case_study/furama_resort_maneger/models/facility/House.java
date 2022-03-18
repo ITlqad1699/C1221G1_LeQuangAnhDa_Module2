@@ -1,6 +1,8 @@
 package case_study.furama_resort_maneger.models.facility;
 
-public class House  extends Facility{
+import case_study.furama_resort_maneger.models.GetInFoToCSV;
+
+public class House extends Facility implements GetInFoToCSV {
     private String roomStandard;
     private int floorNumber;
 
@@ -46,5 +48,10 @@ public class House  extends Facility{
                 "roomStandard='" + roomStandard + '\'' +
                 ", floorNumber=" + floorNumber +
                 '}';
+    }
+
+    @Override
+    public String getInFoToCSV() {
+        return this.getNameService() + "," + this.getUsableArea() + "," + this.getRentalCosts() + "," + this.getMaximumPeople() + "," + this.getRentalType() + "," + this.getServiceCode() + "," + roomStandard + "," + floorNumber;
     }
 }

@@ -10,38 +10,48 @@ import case_study.furama_resort_maneger.services.facility_service.FacilityServic
 import java.util.Scanner;
 
 public class FuramaControllers {
-    public static void main(String[] args) {
-        FuramaControllers furamaControllers = new FuramaControllers();
-        furamaControllers.displayMainMenu();
-    }
     static EmployeeService employeeServiceImpl = new EmployeeServiceImpl();
     static CustomerService customerServiceImpl = new CustomerServiceImpl();
     static FacilityService facilityServiceImpl = new FacilityServiceImpl();
 
     public static void displayMainMenu() {
-        int choiceFunction;
-        int choiceEmployeeFunction;
-        int choiceCustomerFunction;
-        int choiceFacilityFunction;
-        int choiceBookingFunction;
-        int choicePromotionFunction;
+        int choiceFunction = 0;
+        int choiceEmployeeFunction = 0;
+        int choiceCustomerFunction = 0;
+        int choiceFacilityFunction = 0;
+        int choiceBookingFunction = 0;
+        int choicePromotionFunction = 0;
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("1.\tEmployee Management\n" +
-                    "2.\tCustomer Management\n" +
-                    "3.\tFacility Management \n" +
-                    "4.\tBooking Management\n" +
-                    "5.\tPromotion Management\n" +
-                    "6.\tExit\n");
+            System.out.println("" +
+                    "<===========================>\n" +
+                    "|1.\tEmployee Management    |\n" +
+                    "|2.\tCustomer Management    |\n" +
+                    "|3.\tFacility Management    |\n" +
+                    "|4.\tBooking Management     |\n" +
+                    "|5.\tPromotion Management   |\n" +
+                    "|6.\tExit                   |\n" +
+                    "<===========================>\n");
             System.out.print("Select Function: ");
-            choiceFunction = Integer.parseInt(scanner.nextLine());
+            try {
+                choiceFunction = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.out.println("Enter number from 1 to 6:  ");
+            }
             switch (choiceFunction) {
                 case 1:
-                    System.out.println("1.\tDisplay list employees\n" +
+                    System.out.println("" +
+                            "1.\tDisplay list employees\n" +
                             "2.\tAdd new employee\n" +
                             "3.\tEdit employee\n" +
                             "4.\tReturn main menu\n");
-                    choiceEmployeeFunction = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Select Function: ");
+                    try {
+                        choiceEmployeeFunction = Integer.parseInt(scanner.nextLine());
+
+                    } catch (Exception e) {
+                        System.out.println("this function doesn't exist,choose another function: ");
+                    }
                     switch (choiceEmployeeFunction) {
                         case 1:
                             employeeServiceImpl.displayList();
@@ -62,7 +72,13 @@ public class FuramaControllers {
                             "2.\tAdd new customer\n" +
                             "3.\tEdit customer\n" +
                             "4.\tReturn main menu\n");
-                    choiceCustomerFunction = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Select Function: ");
+                    try {
+                        choiceCustomerFunction = Integer.parseInt(scanner.nextLine());
+
+                    } catch (Exception e) {
+                        System.out.println("this function doesn't exist, choose another function: ");
+                    }
                     switch (choiceCustomerFunction) {
                         case 1:
                             customerServiceImpl.displayList();
@@ -83,7 +99,12 @@ public class FuramaControllers {
                             "2.\tAdd new facility\n" +
                             "3.\tDisplay list facility maintenance\n" +
                             "4.\tReturn main menu\n");
-                    choiceFacilityFunction = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Select Function: ");
+                    try {
+                        choiceFacilityFunction = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("this function doesn't exist, choose another function: ");
+                    }
                     switch (choiceFacilityFunction) {
                         case 1:
                             facilityServiceImpl.displayList();
@@ -106,7 +127,12 @@ public class FuramaControllers {
                             "4.\tDisplay list contracts\n" +
                             "5.\tEdit contracts\n" +
                             "6.\tReturn main menu\n");
-                    choiceBookingFunction = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Select Function: ");
+                    try {
+                        choiceBookingFunction = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("this function doesn't exist, choose another function: ");
+                    }
                     switch (choiceBookingFunction) {
                         case 1:
                             //addnew
@@ -132,7 +158,12 @@ public class FuramaControllers {
                     System.out.println("1.\tDisplay list customers use service\n" +
                             "2.\tDisplay list customers get voucher\n" +
                             "3.\tReturn main menu\n");
-                    choicePromotionFunction = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Select Function: ");
+                    try {
+                        choicePromotionFunction = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("this function doesn't exist, choose another function: ");
+                    }
                     switch (choicePromotionFunction) {
                         case 1:
                             //display list customers use service

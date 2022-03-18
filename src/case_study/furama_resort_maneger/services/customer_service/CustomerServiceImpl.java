@@ -1,23 +1,26 @@
 package case_study.furama_resort_maneger.services.customer_service;
 
 import case_study.furama_resort_maneger.models.person.Customer;
-
-import java.util.LinkedList;
+import case_study.furama_resort_maneger.util.reader_and_writer.ReaderAndWriter;
+import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
-//    public static void main(String[] args) {
-//        CustomerService customerService = new CustomerServiceImpl();
+    public static void main(String[] args) {
+        CustomerService customerService = new CustomerServiceImpl();
 //        customerService.editElement();
-//        customerService.displayList();
-//    }
+        customerService.displayList();
+    }
 
     Scanner scanner = new Scanner(System.in);
-    private static LinkedList<Customer> customers = new LinkedList<>();
+    private static List<Customer> customers = ReaderAndWriter.readCustomerListFromCSV();
+    private static final boolean COUNTINUE = true; //countinue write csv
+    private static final boolean NOT_COUNTINUE = false; //override file csv
 
-//    static {
-//        customers.add(new Customer(1, "vu", "15/3", "nam", 12, "093433445", "tienvu@gmail.com", "vip", "nghĩa đàn"));
-//    }
+//    private static LinkedList<Customer> customers = new LinkedList<>();
+    static {
+        customers.add(new Customer(1, "vu", "15/3", "nam", 12, "093433445", "tienvu@gmail.com", "vip", "nghĩa đàn"));
+    }
 
     /* initialize a new employee: */
     private static Customer initializeNewCustomer() {
@@ -58,11 +61,14 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void addNew() {
         Customer newCustomer = initializeNewCustomer();
+//        List<Customer> customers = ReaderAndWriter.readCustomerListFromCSV();
         customers.add(newCustomer);
+        ReaderAndWriter.writeCustomerToCSV(customers, COUNTINUE);
     }
 
     @Override
     public void displayList() {
+//        List<Customer> customers = ReaderAndWriter.readCustomerListFromCSV();
         for (Customer customer : customers) {
             System.out.println(customer);
         }
@@ -75,6 +81,8 @@ public class CustomerServiceImpl implements CustomerService {
                 "2. id\n" +
                 "select function: ");
         int choice = Integer.parseInt(scanner.nextLine());
+//        List<Customer> customers = ReaderAndWriter.readCustomerListFromCSV();
+
         switch (choice) {
             case 1:
                 System.out.println("enter name you want to update: ");
@@ -84,6 +92,7 @@ public class CustomerServiceImpl implements CustomerService {
                     if (customers.get(i).getName().toLowerCase().contains(editName)) {
                         Customer updateCustomer = initializeNewCustomer();
                         customers.set(i, initializeNewCustomer());
+                        ReaderAndWriter.writeCustomerToCSV(customers, NOT_COUNTINUE);
                         flag1 = true;
                     }
                 }
@@ -99,6 +108,7 @@ public class CustomerServiceImpl implements CustomerService {
                     if (customers.get(i).getId() == editID) {
                         Customer updateCustomer = initializeNewCustomer();
                         customers.set(i, initializeNewCustomer());
+                        ReaderAndWriter.writeCustomerToCSV(customers, NOT_COUNTINUE);
                         flag2 = true;
                     }
                     if (!flag2) {
